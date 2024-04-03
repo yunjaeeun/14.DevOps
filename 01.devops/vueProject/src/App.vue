@@ -17,8 +17,14 @@
   const result = ref(0);
 
   const sendPlus = async() => {
-    const response = await fetch(`http://localhost:7777/plus?num1=${num1.value}&num2=${num2.value}`);
+
+    /* vue cors 적용 전 */
+    const response = await fetch(`http://localhost:8055/plus?num1=${num1.value}&num2=${num2.value}`);
+
+    /* vue cors 적용 후 */
+    // const response = await fetch(`http://localhost:5173/api/plus?num1=${num1.value}&num2=${num2.value}`);
     const data = await response.json();
+
     /*
      sum이라는 프로퍼티 안에 넣어주기 위해서 data.sum으로 선언
      {
