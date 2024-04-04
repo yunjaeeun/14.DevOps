@@ -19,10 +19,13 @@
   const sendPlus = async() => {
 
     /* vue cors 적용 전 */
-    const response = await fetch(`http://localhost:8055/plus?num1=${num1.value}&num2=${num2.value}`);
+    // const response = await fetch(`http://localhost:8055/plus?num1=${num1.value}&num2=${num2.value}`);
 
     /* vue cors 적용 후 */
     // const response = await fetch(`http://localhost:5173/api/plus?num1=${num1.value}&num2=${num2.value}`);
+
+    /* docker containere 간의 네트워크 연결 후 (5173/api가 아니라 8011/api로 바꿔야 한다.)*/
+    const response = await fetch(`http://localhost:8011/api/plus?num1=${num1.value}&num2=${num2.value}`);
     const data = await response.json();
 
     /*
