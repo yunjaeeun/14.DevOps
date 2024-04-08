@@ -15,7 +15,7 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
-    @GetMapping("/health_chech")
+    @GetMapping("/health_check")
     public String health() {
         return "fine";
     }
